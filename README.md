@@ -1,7 +1,7 @@
 # CoffeeStar
 Kaffee Bestellsystem
 
-Einloggen
+- Einloggen
 
 Produkte auswählen und hinzufügen
 
