@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.8 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.8">
   <diagram name="Seite-1" id="Pfz2-o1V6FcVZHX-TINe">
-    <mxGraphModel dx="1146" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1418" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -70,13 +70,13 @@
         <mxCell id="J8yQ5oY-_x14wDKMXTq_-30" value="&amp;lt;&amp;lt;extended&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="489" y="720" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZBo6i-VFBFjkGNY5LsLU-1" value="&lt;p style=&quot;line-height: 130%; font-size: 14px;&quot;&gt;Erstellt: Tijana Vila&lt;br&gt;Teilnehmer: Arthur Bitzer&lt;/p&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="124" y="950" width="250" height="90" as="geometry" />
+        <mxCell id="ZBo6i-VFBFjkGNY5LsLU-1" value="&lt;p style=&quot;line-height: 130%; font-size: 14px;&quot;&gt;Erstellt: Tijana Vila&lt;br&gt;&lt;/p&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="10" y="1109" width="146" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="ZBo6i-VFBFjkGNY5LsLU-2" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;COFFEESTAR&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="ZBo6i-VFBFjkGNY5LsLU-2" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;COFFEESTAR&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="256.5" y="40" width="305" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="ZBo6i-VFBFjkGNY5LsLU-3" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Das Kaffee Bestellsystem&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="ZBo6i-VFBFjkGNY5LsLU-3" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Das Kaffee Bestellsystem&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="252.75" y="90" width="312.5" height="30" as="geometry" />
         </mxCell>
       </root>
