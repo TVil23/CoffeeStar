@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.8 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.8">
   <diagram name="Seite-1" id="sV9cqVP-j2WePneBch82">
-    <mxGraphModel dx="1046" dy="577" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1785" dy="984" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -419,27 +419,6 @@
         <mxCell id="x2TXDSleHzLHUjvk5ZYA-219" value="" style="rounded=1;whiteSpace=wrap;html=1;fillStyle=cross-hatch;fillColor=#FFFFFF;" parent="1" vertex="1">
           <mxGeometry x="550.5" y="2630" width="40" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="x2TXDSleHzLHUjvk5ZYA-241" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1478.5" y="800" width="440" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="x2TXDSleHzLHUjvk5ZYA-242" value="About" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" parent="1" vertex="1">
-          <mxGeometry x="1799" y="800" width="79.5" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="x2TXDSleHzLHUjvk5ZYA-243" value="Start" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1478.5" y="800" width="80" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="x2TXDSleHzLHUjvk5ZYA-244" value="Menu" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1558.5" y="800" width="80" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="x2TXDSleHzLHUjvk5ZYA-245" value="Comunity" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1718" y="800" width="80" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="x2TXDSleHzLHUjvk5ZYA-246" value="Cart" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1637.75" y="800" width="81.01" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="x2TXDSleHzLHUjvk5ZYA-247" value="" style="rounded=1;whiteSpace=wrap;html=1;fillStyle=cross-hatch;fillColor=#FFFFFF;" parent="1" vertex="1">
-          <mxGeometry x="1878.5" y="800" width="40" height="30" as="geometry" />
-        </mxCell>
         <mxCell id="x2TXDSleHzLHUjvk5ZYA-248" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="160.25" y="1240" width="360" height="160" as="geometry" />
         </mxCell>
@@ -824,7 +803,7 @@
         <mxCell id="5uoD5dOWei8yImq7P3kl-6" value="Credit Card" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="1041.1299999999999" y="1525" width="120" height="25" as="geometry" />
         </mxCell>
-        <mxCell id="5uoD5dOWei8yImq7P3kl-7" value="Order" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="5uoD5dOWei8yImq7P3kl-7" value="Order" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="1140.25" y="1654" width="40" height="21" as="geometry" />
         </mxCell>
         <mxCell id="5uoD5dOWei8yImq7P3kl-8" value="MM/YY" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeColor=default;" parent="1" vertex="1">
@@ -1012,6 +991,24 @@
         </mxCell>
         <mxCell id="ErWLjQlZ_nW_-_eVIdQ0-59" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="160.25" y="1420" width="130.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ErWLjQlZ_nW_-_eVIdQ0-60" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1478.5" y="800" width="440" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ErWLjQlZ_nW_-_eVIdQ0-61" value="About" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1778.25" y="800" width="100.25" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ErWLjQlZ_nW_-_eVIdQ0-62" value="Start" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1478.5" y="800" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ErWLjQlZ_nW_-_eVIdQ0-63" value="Menu" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1578.5" y="800" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ErWLjQlZ_nW_-_eVIdQ0-64" value="Cart" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1678.75" y="800" width="99.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ErWLjQlZ_nW_-_eVIdQ0-65" value="" style="rounded=1;whiteSpace=wrap;html=1;fillStyle=cross-hatch;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="1878.5" y="800" width="40" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
