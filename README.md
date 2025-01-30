@@ -3,12 +3,12 @@ Kaffee Bestellsystem
 
 - Einloggen
 
-Produkte auswählen und hinzufügen
+- Produkte auswählen und hinzufügen
 
-Coupons einlösen
+- Coupons einlösen
 
-Bestellen
+- Bestellen
 
-Punkte Sammeln
+- Punkte Sammeln
 
-gesammelten Punkte einlösen
+- gesammelten Punkte einlösen
