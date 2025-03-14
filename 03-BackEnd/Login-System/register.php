@@ -1,30 +1,3 @@
-<?php
-require 'config.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = htmlspecialchars($_POST['name']);
-    $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
-    $password = $_POST['password'];
-    $group_class = htmlspecialchars($_POST['group_class']);
-    
-    if ($email && strlen($password) >= 8) {
-        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-        $token = bin2hex(random_bytes(16));
-        
-        $stmt = $pdo->prepare("INSERT INTO users (name, email, password, group_class, token) VALUES (?, ?, ?, ?, ?)");
-        if ($stmt->execute([$name, $email, $hashed_password, $group_class, $token])) {
-            $confirm_link = "http://yourdomain.com/confirm.php?token=$token";
-            mail($email, "Bestätigen Sie Ihre Registrierung", "Klicken Sie auf den folgenden Link: $confirm_link");
-            echo "Registrierung erfolgreich! Bitte prüfen Sie Ihre E-Mails.";
-        } else {
-            echo "Fehler bei der Registrierung!";
-        }
-    } else {
-        echo "Ungültige Eingabe!";
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -44,5 +17,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" class="button">Registrieren</button>
         </form>
     </div>
+
+    <?php
+    // Verbindungsaufbau zu PDO, da du PDO in config.php verwendest
+    require 'config.php';  // Hier wird PDO von config.php geladen
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $name = htmlspecialchars($_POST['name']);
+        $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+        $password = $_POST['password'];
+        $group_class = htmlspecialchars($_POST['group_class']);
+        
+        if ($email && strlen($password) >= 8) {
+            $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+            $token = bin2hex(random_bytes(16));
+
+            // PDO für das Einfügen der Daten verwenden
+            $stmt = $pdo->prepare("INSERT IGNORE  INTO users (name, email, password, group_class, token) VALUES (?, ?, ?, ?, ?)");
+            if ($stmt->execute([$name, $email, $hashed_password, $group_class, $token])) {
+                $confirm_link = "http://yourdomain.com/confirm.php?token=$token";
+                mail($email, "Bestätigen Sie Ihre Registrierung", "Klicken Sie auf den folgenden Link: $confirm_link");
+                echo "Registrierung erfolgreich! Bitte prüfen Sie Ihre E-Mails.";
+            } else {
+                echo "Fehler bei der Registrierung!";
+            }
+        } else {
+            echo "Ungültige Eingabe!";
+        }
+    }
+    ?>
 </body>
 </html>
