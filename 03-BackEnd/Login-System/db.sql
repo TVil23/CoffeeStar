@@ -1,4 +1,7 @@
-CREATE DATABASE login_system;
+CREATE DATABASE IF NOT EXISTS login_system
+                DEFAULT CHARACTER SET utf8mb4 
+                COLLATE utf8mb4_general_ci
+
 
 USE login_system;
 
