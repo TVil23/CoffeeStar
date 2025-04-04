@@ -15,7 +15,6 @@ body {
     width: 80%;
     max-width: 1200px;
     height: auto;
-    max-height: 900px;
     background: white;
     padding: 15px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -24,7 +23,6 @@ body {
     flex-direction: column;
     justify-content: space-between;
     min-height: 60vh;
-    position: relative;
 }
 
 /* Navigation Bar */
@@ -37,7 +35,6 @@ body {
     width: 100%;
     box-sizing: border-box; /* Ensure padding is included in the width */
 }
-
 .navbar a {
     color: white;
     text-decoration: none;
@@ -50,19 +47,15 @@ body {
     width: calc(100% / 3); /* Equal distribution of nav items */
     box-sizing: border-box; /* Ensure padding is included in width calculation */
 }
-
-/* Optional - Nav items will now be centered inside the container */
 .navbar a:first-child {
     margin-left: 0;
 }
 .navbar a:last-child {
     margin-right: 0;
 }
-
 .navbar a:hover {
     background: #777;
 }
-
 .nav-logo {
     width: 50px;
     height: auto;
@@ -70,62 +63,104 @@ body {
 }
 
 
-/* Main Content */
-.content {
+/* Account & Logo Section */
+.account-logo-section {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
     padding: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.account-logo-section .logo-box,
+.account-logo-section .account-box {
+    flex: 1; /* Allow both to share the available space equally */
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    max-width: 48%; /* Ensure they don't overflow */
+}
+
+.logo-box img {
+    max-width: 100%;
+    height: auto;
+    max-height: 120px;
+}
+
+.account-box {
+    text-align: left;
+}
+
+.account-logo-text {
+    max-width: 300px;
     width: 100%;
-    margin-top: 20px;
-    flex-grow: 1;
-    box-sizing: border-box;
+    display: block;
+    margin-bottom: 10px;
 }
 
-/* Logo */
-.main-logo {
-    width: 30%;
-    max-width: 200px;
-    padding: 5px;
-    margin: auto;
+.account-info p {
+    margin: 5px 0;
 }
 
-/* Text Box */
-.text-box {
-    width: 70%;
-    background: #eee;
+/* Menu Title Box */
+.menu-title-box {
+    width: 100%;
     padding: 20px;
+    background-color: #eee;
+    margin-top: 10px;
+}
+
+.menu-title {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Menu Choice Section */
+.menu-choice {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.choice-item button {
+    border: 2px solid #ccc;
+    background: white;
+    padding: 10px;
     border-radius: 10px;
-    text-align: center;
-    margin: 0 auto;
-    z-index: 1;
-    box-sizing: border-box;
-}
-
-.text-box-logo {
-    width: 60%;
-    max-width: 400px;
-    margin-bottom: 20px;
-}
-
-.buttons {
-    margin-top: 20px;
-}
-
-button {
-    padding: 10px 15px;
-    margin: 5px;
-    border: none;
-    background: #746154;
-    color: white;
-    font-size: 16px;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 150px;
+    height: 200px;
+    text-align: center;
 }
 
-button:hover {
-    background: #8b7565;
+.choice-item button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.choice-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 10px;
+    border: 2px solid #ccc;
+}
+
+.choice-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.choice-item p {
+    margin: 0;
+    font-weight: bold;
 }
 
 /* Contact Box */
@@ -136,16 +171,13 @@ button:hover {
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
-    position: relative;
-    bottom: 0;
-    z-index: 0; /* Keep it below other content */
+    margin-top: 20px;
 }
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .container {
         width: 90%;
-        padding: 15px;
     }
 
     .navbar {
@@ -153,68 +185,57 @@ button:hover {
         align-items: center;
         justify-content: space-between;
     }
-
     .navbar a {
         font-size: 1.2rem;
         padding: 12px 15px;
         width: calc(100% / 3); /* Keep equal width for each button */
     }
 
-    .content {
+    .account-logo-section {
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .main-logo {
-        width: 50%;
-    }
-
-    .text-box {
-        width: 90%;
-        margin-bottom: 20px;
-    }
-
-    .buttons {
         text-align: center;
     }
-}
 
-@media screen and (max-width: 480px) {
-    body {
-        padding: 10px;
+    .menu-choice {
+        flex-direction: column;
     }
 
+    .choice-item button {
+        width: 180px;
+        height: 220px;
+    }
+
+    .account-box {
+        text-align: center;
+        max-width: 100%; /* Make account box stretch in smaller screens */
+    }
+
+    .logo-box {
+        margin-bottom: 20px; /* Give some space between logo and account info */
+    }
+}
+@media screen and (max-width: 480px) {
     .navbar a {
         font-size: 1rem;
         padding: 10px 12px;
         width: calc(100% / 3); /* Maintain equal width on small screens */
     }
 
-    .main-logo {
-        width: 60%;
+    .choice-circle {
+        width: 80px;
+        height: 80px;
     }
 
-    .text-box {
-        padding: 15px;
-        width: 100%;
+    .choice-item button {
+        width: 160px;
+        height: 200px;
     }
 
-    button {
-        font-size: 14px;
-        padding: 8px 12px;
+    .menu-title {
+        font-size: 1.5rem;
     }
 
-    .buttons button {
-        width: 100%; /* Full-width buttons on small devices */
-    }
-
-    .nav-logo {
-        display: none; /* Hide logo in navbar on very small screens */
-    }
-
-    .contact-box {
-        padding: 10px;
-        font-size: 14px; /* Smaller font size for small devices */
+    .account-logo-text {
+        max-width: 100%;
     }
 }
