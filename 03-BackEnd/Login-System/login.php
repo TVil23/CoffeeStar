@@ -13,9 +13,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute([$email]);
     $user = $stmt->fetch();
 
+    echo "Gehashtes Passwort in DB: " . $user['password'];
+    echo "Eingegebenes Passwort: " . $password;
+
+
+
+
     if ($user && password_verify($password, $user['password']) && $user['verified']) {
         $_SESSION['user_id'] = $user['id'];
+        echo "Anmeldung erfolgreich";
         header("Location: dashboard.php");
+        
     } else {
         echo "Falsche Anmeldedaten oder Konto nicht bestätigt!";
     }

@@ -15,6 +15,11 @@
             <input type="password" name="password" placeholder="Passwort" required>
             <input type="text" name="group_class" placeholder="Gruppe/Klasse (z. B. IT22)">
             <button type="submit" class="button">Registrieren</button>
+
+            <button type="button" onclick="window.location.href='login.php'" class="button">Einloggen</button>
+
+
+
         </form>
     </div>
 
@@ -29,12 +34,12 @@
         $group_class = htmlspecialchars($_POST['group_class']);
         
         if ($email && strlen($password) >= 8) {
-            $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
             $token = bin2hex(random_bytes(16));
 
             // PDO für das Einfügen der Daten verwenden
             $stmt = $pdo->prepare("INSERT IGNORE  INTO users (name, email, password, group_class, token) VALUES (?, ?, ?, ?, ?)");
-            if ($stmt->execute([$name, $email, $hashed_password, $group_class, $token])) {
+            if ($stmt->execute([$name, $email, $hashedPassword , $group_class, $token])) {
                 $confirm_link = "http://yourdomain.com/confirm.php?token=$token";
                 mail($email, "Bestätigen Sie Ihre Registrierung", "Klicken Sie auf den folgenden Link: $confirm_link");
                 echo "Registrierung erfolgreich! Bitte prüfen Sie Ihre E-Mails.";
