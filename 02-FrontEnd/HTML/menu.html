@@ -70,6 +70,124 @@
             </div>
         </div>
 
+        <!-- Menu Choice Hot Coffee -->
+        <div class="menu-box" id="hot-coffee">
+            <h3>Hot Coffee</h3>
+            <div class="menu-slider">
+            <button class="slide-btn left-btn">&#8592;</button>
+            <div class="menu-items">
+
+                <div class="menu-item">
+                    <img src="img/espresso.jpg" alt="Espresso">
+                    <p>Espresso</p>
+                </div>
+
+                <div class="menu-item">
+                    <img src="img/cappuccino.jpg" alt="Cappuccino">
+                    <p>Cappuccino</p>
+                </div>
+
+                <div class="menu-item">
+                    <img src="img/cappuccino2.jpg" alt="Cappuccino">
+                    <p>Cappuccino</p>
+                </div>
+
+                <div class="menu-item">
+                    <img src="img/cappuccino3.jpg" alt="Cappuccino">
+                    <p>Cappuccino</p>
+                </div>
+
+
+                <!-- Weitere Items können hier stehen und mit JS eingeblendet werden -->
+            </div>
+            <button class="slide-btn right-btn" data-target="hot-coffee">&#8594;</button>
+            </div>
+        </div>
+
+
+
+        <!-- Menu Choice Cold Coffee -->
+        <div class="menu-box" id="cold-coffee">
+            <h3>Hot Coffee</h3>
+            <div class="menu-slider">
+            <button class="slide-btn left-btn">&#8592;</button>
+            <div class="menu-items">
+
+                <div class="menu-item">
+                <img src="img/iced-espresso.jpg" alt="Iced Espresso">
+                <p>Iced Espresso</p>
+                </div>
+
+                <div class="menu-item">
+                <img src="img/iced-cappuccino.jpg" alt="Iced Cappuccino">
+                <p>Iced Cappuccino</p>
+                </div>
+
+                <!-- Weitere Items können hier stehen und mit JS eingeblendet werden -->
+            </div>
+            <button class="slide-btn right-btn" data-target="cold-coffee">&#8594;</button>
+            </div>
+        </div>
+
+        <!-- Menu Choice Baked -->
+        <div class="menu-box" id="baked">
+            <h3>Hot Coffee</h3>
+            <div class="menu-slider">
+            <button class="slide-btn left-btn">&#8592;</button>
+            <div class="menu-items">
+
+                <div class="menu-item">
+                <img src="img/Baked1.jpg" alt="Baked 1">
+                <p>Baked 1</p>
+                </div>
+
+                <div class="menu-item">
+                <img src="img/baked2.jpg" alt="Baked 2">
+                <p>Baked 2</p>
+                </div>
+
+                <div class="menu-item">
+                    <img src="img/baked2.jpg" alt="Baked 2">
+                    <p>Baked 2</p>
+                </div>
+
+                <div class="menu-item">
+                    <img src="img/baked2.jpg" alt="Baked 2">
+                    <p>Baked 2</p>
+                </div>
+
+                <div class="menu-item">
+                    <img src="img/baked2.jpg" alt="Baked 2">
+                    <p>Baked 2</p>
+                </div>
+
+                <!-- Weitere Items können hier stehen und mit JS eingeblendet werden -->
+            </div>
+            <button class="slide-btn right-btn" data-target="baked">&#8594;</button>
+            </div>
+        </div>
+
+
+
+        <script>
+            document.querySelectorAll('.slide-btn').forEach(button => {
+              button.addEventListener('click', () => {
+                const direction = button.classList.contains('left-btn') ? -1 : 1;
+                const targetId = button.getAttribute('data-target');
+                const container = document.querySelector(`#${targetId} .menu-items`);
+                const scrollAmount = container.querySelector('.menu-item').offsetWidth + 20;
+                container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+              });
+            });
+        </script>
+
+
+
+
+
+
+
+
         <!-- Contact Information -->
         <div class="contact-box">
             <p>Contact us at: contact@coffeestar.com | Phone: +123 456 7890</p>
