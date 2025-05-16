@@ -8,6 +8,12 @@
 </head>
 <body>
 
+
+    <!-- 
+        FIX LAYOUT
+        FIX ADD ITEM TO CART (make it posible) 
+    -->
+
     <div class="container">
         <!-- Navigation Bar -->
         <nav class="navbar">
@@ -20,32 +26,36 @@
 
         <!-- Account & Logo Section -->
         <div class="account-logo-section">
-            <!-- Logo (1/3) -->
+            <!-- Logo -->
             <div class="logo-box">
                 <img src="img/logo.jpg" alt="Main Logo">
             </div>
 
-            <!-- Account Information Box (2/3) -->
+            <!-- Account Information Box -->
             <div class="account-box">
                 <img src="img/logo-txt.jpg" alt="CoffeeStar" class="account-logo-text">
                 <div class="account-info">
                     <p><strong>Account Information:</strong></p>
                     <p>Username: <span id="username">Tijana</span></p>
                     <p>Points: <span id="points">120</span></p>
-                    <button>Sign Out</button>
+                    <button type="button" class="SignOut">Sign Out</button>
                 </div>
             </div>
         </div>
+
+
+
 
         <!-- Menu Title -->
         <div class="menu-title-box">
             <h2 class="menu-title">Menu</h2>
         </div>
 
+
         <!-- Menu Choice Section -->
         <div class="menu-choice">
             <div class="choice-item">
-                <button>
+                <button type="button" class="MenuHot">
                     <div class="choice-circle">
                         <img src="img/Hot-Coffee/Hot-Coffee.png" alt="Hot Coffee">
                     </div>
@@ -53,7 +63,7 @@
                 </button>
             </div>
             <div class="choice-item">
-                <button>
+                <button type="button" class="MenuCold">
                     <div class="choice-circle">
                         <img src="img/Cold-Coffee/Cold-Coffee.png" alt="Cold Coffee">
                     </div>
@@ -61,57 +71,63 @@
                 </button>
             </div>
             <div class="choice-item">
-                <button>
+                <button type="button" class="MenuBake">
                     <div class="choice-circle">
-                        <img src="img//Baked/baked.png" alt="Baked Goods">
+                        <img src="img/Baked/baked.png" alt="Baked Goods">
                     </div>
                     <p>Baked</p>
                 </button>
             </div>
         </div>
 
+
+
+
+
+
+
         <!-- Menu Choice Hot Coffee -->
         <div class="menu-box" id="hot-coffee">
             <h3>Hot Coffee</h3>
 
             <div class="menu-slider">
-                <button class="slide-btn left-btn">&#8592;</button>
+                <button class="slide-btn left-btn" data-target="hot-coffee">&#8592;</button>
             <div class="menu-items">
 
                 <div class="menu-item">
                     <img src="img/Hot-Coffee/Americano.jpg" alt="Americano">
                     <p>Americano</p>
-                    <button type="add-Item" class="btn-primary">Add to Cart</button>
+                    <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Hot-Coffee/Cafe_Latte.jpg" alt="Cafe Latte">
                     <p>Cafe Latte</p>
-                    <button type="add-Item" class="btn-primary">Add to Cart</button>
+                    <button type="button" class="add_Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Hot-Coffee/Cuppuccino.jpg" alt="Cappuccino">
                     <p>Cappuccino</p>
-                    <button type="add-Item" class="btn-primary">Add to Cart</button>
+                    <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Hot-Coffee/espresso.jpg" alt="Espresso">
                     <p>Espresso</p>
-                    <button type="add-Item" class="btn-primary">Add to Cart</button>
+                    <button type="button" class="btn-primary">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Hot-Coffee/Macchiato.jpg" alt="Macchiato">
                     <p>Macchiato</p>
-                    <button type="add-Item" class="btn-primary">Add to Cart</button>
+                    <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Hot-Coffee/Mocha.png" alt="Mocha">
                     <p>Mocha</p>
-                    <button type="add-Item" class="btn-primary">Add to Cart</button>
+                    <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <!-- Weitere Items -->
@@ -121,42 +137,43 @@
             </div>
         </div>
 
+
         <!-- Menu Choice Cold Coffee -->
         <div class="menu-box" id="cold-coffee">
             <h3>Cold Coffee</h3>
 
             <div class="menu-slider">
-            <button class="slide-btn left-btn">&#8592;</button>
+            <button class="slide-btn left-btn" data-target="cold-coffee">&#8592;</button>
             <div class="menu-items">
 
                 <div class="menu-item">
                     <img src="img/Cold-Coffee/Cold-Brew.jpg" alt="Cold-Brew">
                     <p>Cold-Brew</p>
-                    <button type="add-Item" class="btn-primary">Add to Cart</button>
+                    <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Cold-Coffee/Frappuchino.jpg" alt="Frappuchino">
                     <p>Frappuchino</p>
-                    <button type="add-Item" class="btn-primary">Add to Cart</button>
+                    <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Cold-Coffee/Iced-Americano.jpg" alt="Iced-Americano">
                     <p>Iced-Americano</p>
-                    <button type="add-Item" class="btn-primary">Add to Cart</button>
+                    <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Cold-Coffee/Iced-Latte.jpeg" alt="Iced-Latte">
                     <p>Iced-Latte</p>
-                    <button type="add-Item" class="btn-primary">Add to Cart</button>
+                    <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Cold-Coffee/Mazagran.jpg" alt="Mazagran">
                     <p>Mazagran</p>
-                    <button type="add-Item" class="btn-primary">Add to Cart</button>
+                    <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <!-- Weitere Items -->
@@ -169,31 +186,31 @@
         <div class="menu-box" id="baked">
             <h3>Baked</h3>
             <div class="menu-slider">
-            <button class="slide-btn left-btn">&#8592;</button>
+            <button class="slide-btn left-btn" data-target="baked">&#8592;</button>
             <div class="menu-items">
 
                 <div class="menu-item">
                     <img src="img/Baked/Cheesecake.jpg" alt="Cheesecake">
                     <p>Cheesecake</p>
-                    <button type="add-Item" class="btn-primary">Add to Cart</button>
+                    <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Baked/Cinnamon-Roll.jpg" alt="Cinnamon-Roll">
                     <p>Cinnamon-Roll</p>
-                    <button type="add-Item" class="btn-primary">Add to Cart</button>
+                    <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Baked/Croissant.jpg" alt="Croissant">
                     <p>Croissant</p>
-                    <button type="add-Item" class="btn-primary">Add to Cart</button>
+                    <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Baked/Krapfen.jpg" alt="Krapfen">
                     <p>Krapfen</p>
-                    <button type="add-Item" class="btn-primary">Add to Cart</button>
+                    <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
 
@@ -204,14 +221,23 @@
         </div>
 
         <script>
+            // Slide Buttons
             document.querySelectorAll('.slide-btn').forEach(button => {
-              button.addEventListener('click', () => {
-                const direction = button.classList.contains('left-btn') ? -1 : 1;
-                const targetId = button.getAttribute('data-target');
-                const container = document.querySelector(`#${targetId} .menu-items`);
-                const scrollAmount = container.querySelector('.menu-item').offsetWidth + 20;
-                container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-              });
+                button.addEventListener('click', () => {
+                    const direction = button.classList.contains('left-btn') ? -1 : 1;
+                    const targetId = button.getAttribute('data-target');
+                    const container = document.querySelector(`#${targetId} .menu-items`);
+                    const scrollAmount = container.querySelector('.menu-item').offsetWidth + 20;
+                    container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+                });
+            });
+
+            // Menu Choice Button
+            document.querySelectorAll('.choice-item button').forEach((btn, index) => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.choice-item button').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
             });
         </script>
 

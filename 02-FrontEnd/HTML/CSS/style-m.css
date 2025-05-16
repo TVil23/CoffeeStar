@@ -156,6 +156,10 @@ body {
     margin: 0;
     font-weight: bold;
 }
+.choice-item button.active {
+  background-color: #eee;
+  border-color: #000;
+}
 
 
 
@@ -215,18 +219,6 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /* Contact Box */
 .contact-box {
     background: #333;
@@ -237,14 +229,6 @@ body {
     box-sizing: border-box;
     margin-top: 20px;
 }
-
-
-
-
-
-
-
-
 
 
 
