@@ -10,8 +10,9 @@
 
 
     <!-- 
-        FIX LAYOUT
-        FIX ADD ITEM TO CART (make it posible) 
+    TO-DO: 
+        - link der zu locations auf about seite führt
+        - ADD ITEM TO CART (make it posible) 
     -->
 
     <div class="container">
@@ -43,35 +44,31 @@
             </div>
         </div>
 
-
-
-
         <!-- Menu Title -->
         <div class="menu-title-box">
-            <h2 class="menu-title">Menu</h2>
+            <h1 class="menu-title">Menu</h1>
         </div>
-
 
         <!-- Menu Choice Section -->
         <div class="menu-choice">
-            <div class="choice-item">
-                <button type="button" class="MenuHot">
+            <div class="choice-item"> <!-- Hot -->
+                <button type="button" class="MenuHot" onclick="scrollToSection('hot-coffee')">
                     <div class="choice-circle">
                         <img src="img/Hot-Coffee/Hot-Coffee.png" alt="Hot Coffee">
                     </div>
                     <p>Hot Coffee</p>
                 </button>
             </div>
-            <div class="choice-item">
-                <button type="button" class="MenuCold">
+            <div class="choice-item"> <!-- Cold -->
+                <button type="button" class="MenuCold" onclick="scrollToSection('cold-coffee')">
                     <div class="choice-circle">
                         <img src="img/Cold-Coffee/Cold-Coffee.png" alt="Cold Coffee">
                     </div>
                     <p>Cold Coffee</p>
                 </button>
             </div>
-            <div class="choice-item">
-                <button type="button" class="MenuBake">
+            <div class="choice-item"> <!-- Baked -->
+                <button type="button" class="MenuBake" onclick="scrollToSection('baked')">
                     <div class="choice-circle">
                         <img src="img/Baked/baked.png" alt="Baked Goods">
                     </div>
@@ -81,14 +78,9 @@
         </div>
 
 
-
-
-
-
-
         <!-- Menu Choice Hot Coffee -->
         <div class="menu-box" id="hot-coffee">
-            <h3>Hot Coffee</h3>
+            <h2>Hot Coffee</h2>
 
             <div class="menu-slider">
                 <button class="slide-btn left-btn" data-target="hot-coffee">&#8592;</button>
@@ -129,18 +121,25 @@
                     <p>Mocha</p>
                     <button type="button" class="add-Item">Add to Cart</button>
                 </div>
-
                 <!-- Weitere Items -->
 
             </div>
             <button class="slide-btn right-btn" data-target="hot-coffee">&#8594;</button>
             </div>
+
+            <!-- Info -->
+            <div class="Menu-info">
+                <p>Our Hot Coffee is always freshly prepared and ready to be enjoyed.</p>
+                <p>No matter if inside our Locations or To-Go!</p>
+            </div>
+
+
         </div>
 
 
         <!-- Menu Choice Cold Coffee -->
         <div class="menu-box" id="cold-coffee">
-            <h3>Cold Coffee</h3>
+            <h2>Cold Coffee</h2>
 
             <div class="menu-slider">
             <button class="slide-btn left-btn" data-target="cold-coffee">&#8592;</button>
@@ -175,16 +174,24 @@
                     <p>Mazagran</p>
                     <button type="button" class="add-Item">Add to Cart</button>
                 </div>
-
                 <!-- Weitere Items -->
+
             </div>
             <button class="slide-btn right-btn" data-target="cold-coffee">&#8594;</button>
             </div>
+
+            <!-- Info -->
+            <div class="Menu-info">
+                <p>Having a hard day?</p>
+                <p>Try one of or cold refreshing beverages.</p>
+                <p>A true must have on any hot summer day!</p>
+            </div>
+
         </div>
 
         <!-- Menu Choice Baked -->
         <div class="menu-box" id="baked">
-            <h3>Baked</h3>
+            <h2>Baked</h2>
             <div class="menu-slider">
             <button class="slide-btn left-btn" data-target="baked">&#8592;</button>
             <div class="menu-items">
@@ -212,11 +219,17 @@
                     <p>Krapfen</p>
                     <button type="button" class="add-Item">Add to Cart</button>
                 </div>
+                <!-- Weitere Items -->
 
-
-                <!-- Weitere Items können hier stehen und mit JS eingeblendet werden -->
             </div>
             <button class="slide-btn right-btn" data-target="baked">&#8594;</button>
+            </div>
+
+            <!-- Info -->
+            <div class="Menu-info">
+                <p>Sweet Tooth?</p>
+                <p>You will love this!</p>
+                <p>Our freshly home baked goods.</p>
             </div>
         </div>
 
@@ -239,6 +252,27 @@
                     btn.classList.add('active');
                 });
             });
+
+            // Scroll to menu
+            function scrollToSection(id) {
+                const element = document.getElementById(id);
+                if (!element) return;
+                
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                // Remove and re-add the highlight class
+                element.classList.remove('highlight');
+                
+                // Force reflow to ensure the class re-add works even if clicked multiple times quickly
+                void element.offsetWidth;
+                
+                element.classList.add('highlight');
+                
+                // Remove after 1 second
+                setTimeout(() => {
+                    element.classList.remove('highlight');
+                }, 1000);
+            }
         </script>
 
 

@@ -6,7 +6,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+
     background-color: #f4f4f4;
 }
 
@@ -166,9 +166,16 @@ body {
 
 /* Menu items */
 .menu-box {
+    background-color: white;
     margin: 30px 0;
     text-align: center;
+    transition: background-color 0.3s ease;
   }
+  .menu-box.highlight {
+    background-color: #ffe08a;
+    box-shadow: 0 0 10px #ffcc00;
+  }
+
   .menu-slider {
     display: flex;
     align-items: center;
@@ -211,7 +218,7 @@ body {
 
     width: 40px;
     height: 230px;
-  }
+}
 
 
 
