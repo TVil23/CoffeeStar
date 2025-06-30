@@ -6,11 +6,32 @@
     <title>CoffeeStar - Menu</title>
     <link rel="stylesheet" href="CSS/style-m.css" />
 </head>
+
+<!-- Popup -->
+<div id="popup" class="popup hidden">
+    <div class="popup-content">
+        <p id="popup-message">Adding item to cart...</p>
+        <div class="quantity-selector">
+            <button id="decrease">−</button>
+            <span id="quantity">1</span>
+            <button id="increase">+</button>
+        </div>
+        <div class="popup-buttons">
+            <button id="confirm-add">Add</button>
+            <button id="cancel-add">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- Confirmation -->
+<div id="toast" class="toast hidden"></div>
+
+
 <body>
 
 
     <!-- 
-    TO-DO: 
+        TO-DO: 
         - link der zu locations auf about seite führt
         - ADD ITEM TO CART (make it posible) 
     -->
@@ -37,8 +58,8 @@
                 <img src="img/logo-txt.jpg" alt="CoffeeStar" class="account-logo-text">
                 <div class="account-info">
                     <p><strong>Account Information:</strong></p>
-                    <p>Username: <span id="username">Tijana</span></p>
-                    <p>Points: <span id="points">120</span></p>
+                    <p>Username: <span id="username"> </span></p>
+                    <p>Points: <span id="points"> </span></p>
                     <button type="button" class="SignOut">Sign Out</button>
                 </div>
             </div>
@@ -273,6 +294,71 @@
                     element.classList.remove('highlight');
                 }, 1000);
             }
+
+            // Add to Cart Logic
+            const popup = document.getElementById('popup');
+            const popupMsg = document.getElementById('popup-message');
+            const quantitySpan = document.getElementById('quantity');
+            const increaseBtn = document.getElementById('increase');
+            const decreaseBtn = document.getElementById('decrease');
+            const confirmAddBtn = document.getElementById('confirm-add');
+            const cancelAddBtn = document.getElementById('cancel-add');
+
+            let currentItemName = "";
+            let currentQuantity = 1;
+
+            document.querySelectorAll('.add-Item, .add_Item, .btn-primary').forEach(button => {
+                button.addEventListener('click', () => {
+                    const itemName = button.parentElement.querySelector('p').textContent;
+                    currentItemName = itemName;
+                    currentQuantity = 1;
+                    quantitySpan.textContent = currentQuantity;
+                    popupMsg.textContent = `Adding "${itemName}" to cart, select the amount:`;
+                    popup.classList.remove('hidden');
+                });
+            });
+
+            increaseBtn.addEventListener('click', () => {
+                currentQuantity++;
+                quantitySpan.textContent = currentQuantity;
+            });
+
+            decreaseBtn.addEventListener('click', () => {
+                if (currentQuantity === 1) {
+                    if (confirm(`Remove "${currentItemName}" from cart?`)) {
+                        popup.classList.add('hidden');
+                        // Optional: Remove from cart logic here
+                    }
+                } else {
+                    currentQuantity--;
+                    quantitySpan.textContent = currentQuantity;
+                }
+            });
+
+            confirmAddBtn.addEventListener('click', () => {
+                popup.classList.add('hidden');
+                showToast(`${currentQuantity} ${currentItemName} added to cart`);
+                // TODO: Add to cart logic here
+            });
+
+
+            cancelAddBtn.addEventListener('click', () => {
+                popup.classList.add('hidden');
+            });
+
+            // confirmation
+            function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.remove('hidden');
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.classList.add('hidden'), 400);
+            }, 2500); // Dauer der Anzeige
+            }
+
         </script>
 
 

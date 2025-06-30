@@ -6,7 +6,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f4f4f4;
+    background-color: #634f48;
 }
 
 /* Main Container */
@@ -172,7 +172,7 @@ body {
   }
   .menu-box.highlight {
     background-color: #ffe08a;
-    box-shadow: 0 0 10px #ffcc00;
+    box-shadow: 0 0 10px #a18874;
   }
 
   .menu-slider {
@@ -219,6 +219,88 @@ body {
     height: 230px;
 }
 
+/* jump to highlight */
+.highlight {
+    background-color: tan !important;
+    box-shadow: 0 0 10px rgba(210, 180, 140, 0.7); /* soft tan glow */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+
+
+
+
+/* popup */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+.popup.hidden {
+    display: none;
+}
+.popup-content {
+    background: #fff8f0;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    max-width: 300px;
+    width: 90%;
+}
+.quantity-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+.quantity-selector button {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+}
+#quantity {
+    font-size: 22px;
+    margin: 0 15px;
+    width: 30px;
+    display: inline-block;
+}
+.popup-buttons button {
+    margin: 0 10px;
+    padding: 8px 16px;
+}
+
+/* confirmation */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.4s ease, bottom 0.4s ease;
+}
+.toast.show {
+    opacity: 1;
+    bottom: 40px;
+}
+.toast.hidden {
+    display: none;
+}
 
 
 
@@ -272,18 +354,18 @@ body {
 
     .account-box {
         text-align: center;
-        max-width: 100%; /* Make account box stretch in smaller screens */
+        max-width: 100%; 
     }
 
     .logo-box {
-        margin-bottom: 20px; /* Give some space between logo and account info */
+        margin-bottom: 20px; 
     }
 }
 @media screen and (max-width: 480px) {
     .navbar a {
         font-size: 1rem;
         padding: 10px 12px;
-        width: calc(100% / 3); /* Maintain equal width on small screens */
+        width: calc(100% / 3); 
     }
 
     .choice-circle {

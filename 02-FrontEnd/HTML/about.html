@@ -9,9 +9,7 @@
 <body>
  
     <!-- 
-    TO-DO
-        - FIX CONTACT BAR (under other containers)
-        - ADD THE 3 CONTAINERS untereinander 
+        TO-DO
     -->
  
     <!-- Main Content -->
@@ -94,29 +92,87 @@
         <!-- recipies -->
         <div class="recipes">
             <h2 class="headders">Recipes</h2>
- 
-            <h4>Hot Coffee</h4>
-            <img src="img/Hot-Coffee/Hot_Coffee-Types.png" alt="Recipe" class="Hot-Coffee-Types">
- 
-            <h4>Cold Coffee</h4>
-            <img src="img/Cold-Coffee/Cold_Coffee-Types.jpg" alt="Recipe" class="Cold-Coffee-Types">
+
+            <div class="recipe-images">
+                <div class="recipe-item">
+                    <h4>Hot Coffee</h4>
+                    <img src="img/Hot-Coffee/Hot_Coffee-Types.png" alt="Recipe" class="Hot-Coffee-Types">
+                </div>
+
+                <div class="recipe-item">
+                    <h4>Cold Coffee</h4>
+                    <img src="img/Cold-Coffee/Cold_Coffee-Types.jpg" alt="Recipe" class="Cold-Coffee-Types">
+                </div>
+            </div>
         </div>
  
  
         <!-- Creators -->
+        <h2 class="headders">About Creators</h2>
         <div class="abt-creators">
-            <h2 class="headders">About Creators</h2>
- 
             <div class="creator">
                 <p>A. B.</p>
                 <p>Information . . .</p>
             </div>
- 
+
             <div class="creator">
                 <p>T. V.</p>
                 <p>Information . . .</p>
             </div>
         </div>
+
+
+        <script>
+        // Wait for the DOM to be loaded
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Handle City box hover
+            const cityBoxes = document.querySelectorAll('.City');
+
+            cityBoxes.forEach(box => {
+                box.addEventListener('mouseenter', () => {
+                    box.style.backgroundColor = '#e0e0e0';
+                });
+
+                box.addEventListener('mouseleave', () => {
+                    box.style.backgroundColor = '#fafafa';
+                });
+            });
+
+            // Handle City image hover
+            const images = document.querySelectorAll('.City img');
+
+            images.forEach(img => {
+                img.addEventListener('mouseenter', () => {
+                    img.style.transform = 'translateY(-10px)';
+                    img.style.transition = 'transform 0.3s ease';
+                });
+
+                img.addEventListener('mouseleave', () => {
+                    img.style.transform = 'translateY(0px)';
+                    img.style.transition = 'transform 0.3s ease';
+                });
+            });
+
+
+            // Handle recipe image hover
+            const recipeImages = document.querySelectorAll('.recipes img');
+
+            recipeImages.forEach(img => {
+                img.addEventListener('mouseenter', () => {
+                    img.style.transform = 'scale(1.1)';
+                    img.style.transition = 'transform 0.3s ease';
+                });
+
+                img.addEventListener('mouseleave', () => {
+                    img.style.transform = 'scale(1)';
+                    img.style.transition = 'transform 0.3s ease';
+                });
+            });
+
+        });
+        </script>
+
  
  
  
