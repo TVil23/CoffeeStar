@@ -256,26 +256,13 @@
 
         <script>
             // Slide Buttons
-            document.querySelectorAll('.menu-item button').forEach(button => {
+            document.querySelectorAll('.slide-btn').forEach(button => {
                 button.addEventListener('click', () => {
-                    const menuItem = button.closest('.menu-item');
-                    const name = menuItem.querySelector('p').textContent;
-                    const img = menuItem.querySelector('img').src;
-                    const description = ""; // Falls du Beschreibung hast, sonst leer
-                    const amount = 1;
-
-                    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-
-                    // Prüfen, ob schon drin, dann Menge erhöhen
-                    const existingItem = cartItems.find(item => item.name === name);
-                    if (existingItem) {
-                        existingItem.amount += 1;
-                    } else {
-                        cartItems.push({ name, img, description, amount });
-                    }
-
-                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-                    alert(`${name} wurde dem Warenkorb hinzugefügt.`);
+                    const direction = button.classList.contains('left-btn') ? -1 : 1;
+                    const targetId = button.getAttribute('data-target');
+                    const container = document.querySelector(`#${targetId} .menu-items`);
+                    const scrollAmount = container.querySelector('.menu-item').offsetWidth + 20;
+                    container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
                 });
             });
 

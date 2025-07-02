@@ -125,6 +125,15 @@
             });
         }
 
+        function removeItem(name) {
+            const index = cartItems.findIndex(item => item.name === name);
+            if (index !== -1) {
+                cartItems.splice(index, 1);
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                location.reload();
+            }
+        }
+
         // Umschalten Zahlungsboxen
         document.querySelectorAll('input[name="payment"]').forEach(radio => {
             radio.addEventListener('change', e => {
@@ -140,56 +149,44 @@
 
         // Function to load cart from localStorage and display items
         function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+
             const cartContainer = document.getElementById('cart-items-container');
-            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-            cartContainer.innerHTML = ''; // Inhalt löschen
+            // Clear existing content except the empty cart messages
+            cartContainer.innerHTML = '';
 
-            if (cartItems.length === 0) {
-                // Wenn leer, Zeige Nachricht
+            if (cart.length === 0) {
                 cartContainer.innerHTML = `
-                    <p id="empty-cart-text">Nichts im Warenkorb. Besuche das <a href="menu.html">Menu</a>, um Artikel hinzuzufügen.</p>
+                    <p id="empty-cart-text">Nothing to see here yet.</p>
+                    <p id="empty-cart-text"> Visit the <a href="menu.html">menu</a> to add more Items.</p>
                 `;
                 return;
             }
 
-            // Event Listener für Menge ändern
-            document.querySelectorAll('.amount-input').forEach(input => {
-                input.addEventListener('change', e => {
-                    let newAmount = parseInt(e.target.value);
-                    const idx = e.target.dataset.index;
-                    if (isNaN(newAmount) || newAmount < 0) {
-                        e.target.value = cartItems[idx].amount;
-                        return;
-                    }
-
-                    if (newAmount === 0) {
-                        // Menge 0 = entfernen
-                        removeItem(idx);
-                    } else {
-                        cartItems[idx].amount = newAmount;
-                        localStorage.setItem('cartItems', JSON.stringify(cartItems));
-                    }
-                });
-            });
-
-            // Event Listener für Entfernen
-            document.querySelectorAll('.remove-btn').forEach(btn => {
-                btn.addEventListener('click', e => {
-                    const idx = e.target.dataset.index;
-                    removeItem(idx);
-                });
+            cart.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('cart-item');
+                itemDiv.innerHTML = `
+                    <div class="look">
+                        <img src="${item.img}" alt="${item.name}" class="item" />
+                        <p>${item.description}</p>
+                    </div>
+                    <div>
+                        <p><strong>${item.name}</strong></p>
+                        <p>${item.description}</p>
+                        <label>Amount: 
+                            <input type="number" value="${item.amount}" min="0" />
+                        </label>
+                        <button onclick="removeItem('${item.name}')">Remove</button>
+                    </div>
+                `;
+                cartContainer.appendChild(itemDiv);
             });
         }
 
-        // Artikel entfernen
-        function removeItem(index) {
-            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-            cartItems.splice(index, 1);
-            localStorage.setItem('cartItems', JSON.stringify(cartItems));
-            loadCart();
-        }
 
+        // Load cart when page loads
         window.addEventListener('DOMContentLoaded', loadCart);
 
 

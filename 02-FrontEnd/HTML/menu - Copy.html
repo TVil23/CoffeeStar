@@ -256,26 +256,13 @@
 
         <script>
             // Slide Buttons
-            document.querySelectorAll('.menu-item button').forEach(button => {
+            document.querySelectorAll('.slide-btn').forEach(button => {
                 button.addEventListener('click', () => {
-                    const menuItem = button.closest('.menu-item');
-                    const name = menuItem.querySelector('p').textContent;
-                    const img = menuItem.querySelector('img').src;
-                    const description = ""; // Falls du Beschreibung hast, sonst leer
-                    const amount = 1;
-
-                    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-
-                    // Prüfen, ob schon drin, dann Menge erhöhen
-                    const existingItem = cartItems.find(item => item.name === name);
-                    if (existingItem) {
-                        existingItem.amount += 1;
-                    } else {
-                        cartItems.push({ name, img, description, amount });
-                    }
-
-                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-                    alert(`${name} wurde dem Warenkorb hinzugefügt.`);
+                    const direction = button.classList.contains('left-btn') ? -1 : 1;
+                    const targetId = button.getAttribute('data-target');
+                    const container = document.querySelector(`#${targetId} .menu-items`);
+                    const scrollAmount = container.querySelector('.menu-item').offsetWidth + 20;
+                    container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
                 });
             });
 
@@ -351,24 +338,8 @@
             confirmAddBtn.addEventListener('click', () => {
                 popup.classList.add('hidden');
                 showToast(`${currentQuantity} ${currentItemName} added to cart`);
-
-                // Load existing cart or create empty array
-                let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-                // Check if item already exists in cart
-                const existingItemIndex = cart.findIndex(item => item.name === currentItemName);
-                if (existingItemIndex >= 0) {
-                    // Update quantity if item exists
-                    cart[existingItemIndex].quantity += currentQuantity;
-                } else {
-                    // Add new item to cart
-                    cart.push({ name: currentItemName, quantity: currentQuantity });
-                }
-
-                // Save updated cart back to localStorage
-                localStorage.setItem('cart', JSON.stringify(cart));
+                // TODO: Add to cart logic here
             });
-
 
 
             cancelAddBtn.addEventListener('click', () => {
