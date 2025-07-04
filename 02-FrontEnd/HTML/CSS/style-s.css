@@ -66,6 +66,7 @@ body {
     width: 50px;
     height: auto;
     display: block;
+    border-radius: 50%;
 }
 
 
@@ -137,7 +138,7 @@ button:hover {
     box-sizing: border-box;
     position: relative;
     bottom: 0;
-    z-index: 0; /* Keep it below other content */
+    z-index: 0;
 }
 
 /* Responsive Design */
@@ -156,7 +157,7 @@ button:hover {
     .navbar a {
         font-size: 1.2rem;
         padding: 12px 15px;
-        width: calc(100% / 3); /* Keep equal width for each button */
+        width: calc(100% / 3); 
     }
 
     .content {
@@ -187,7 +188,7 @@ button:hover {
     .navbar a {
         font-size: 1rem;
         padding: 10px 12px;
-        width: calc(100% / 3); /* Maintain equal width on small screens */
+        width: calc(100% / 3);
     }
 
     .main-logo {
@@ -205,15 +206,15 @@ button:hover {
     }
 
     .buttons button {
-        width: 100%; /* Full-width buttons on small devices */
+        width: 100%; 
     }
 
     .nav-logo {
-        display: none; /* Hide logo in navbar on very small screens */
+        display: none; 
     }
 
     .contact-box {
         padding: 10px;
-        font-size: 14px; /* Smaller font size for small devices */
+        font-size: 14px; 
     }
 }

@@ -30,12 +30,14 @@
 <body>
 
 
-    <!-- 
-        TO-DO: 
+    <!-- TO-DO: 
         - Point collection System
 
         - ADD ITEM TO CART (fix connections)
 
+        - Fix slide buttons
+
+        - Logo layout ordered in 3 boxes
 
         - Daily recomended drinks from each category
     -->
@@ -114,42 +116,42 @@
                 <div class="menu-item">
                     <img src="img/Hot-Coffee/Americano.jpg" alt="Americano">
                     <p>Americano</p>
-                    <p class="price">2,00€</p>
+                    <p id="price">2,00€</p>
                     <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Hot-Coffee/Cafe_Latte.jpg" alt="Cafe Latte">
                     <p>Cafe Latte</p>
-                    <p class="price">2,50€</p>
+                    <p id="price">2,50€</p>
                     <button type="button" class="add_Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Hot-Coffee/Cuppuccino.jpg" alt="Cappuccino">
                     <p>Cappuccino</p>
-                    <p class="price">2,50€</p>
+                    <p id="price">2,50€</p>
                     <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Hot-Coffee/espresso.jpg" alt="Espresso">
                     <p>Espresso</p>
-                    <p class="price">1,50€</p>
+                    <p id="price">1,50€</p>
                     <button type="button" class="btn-primary">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Hot-Coffee/Macchiato.jpg" alt="Macchiato">
                     <p>Macchiato</p>
-                    <p class="price">3,00€</p>
+                    <p id="price">3,00€</p>
                     <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Hot-Coffee/Mocha.png" alt="Mocha">
                     <p>Mocha</p>
-                    <p class="price">2,50€</p>
+                    <p id="price">2,50€</p>
                     <button type="button" class="add-Item">Add to Cart</button>
                 </div>
                 <!-- Weitere Items -->
@@ -179,35 +181,35 @@
                 <div class="menu-item">
                     <img src="img/Cold-Coffee/Cold-Brew.jpg" alt="Cold-Brew">
                     <p>Cold-Brew</p>
-                    <p class="price">3,50€</p>
+                    <p id="price">3,50€</p>
                     <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Cold-Coffee/Frappuchino.jpg" alt="Frappuchino">
                     <p>Frappuchino</p>
-                    <p class="price">4,00€</p>
+                    <p id="price">4,00€</p>
                     <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Cold-Coffee/Iced-Americano.jpg" alt="Iced-Americano">
                     <p>Iced-Americano</p>
-                    <p class="price">2,50€</p>
+                    <p id="price">2,50€</p>
                     <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Cold-Coffee/Iced-Latte.jpeg" alt="Iced-Latte">
                     <p>Iced-Latte</p>
-                    <p class="price">2,50€</p>
+                    <p id="price">2,50€</p>
                     <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Cold-Coffee/Mazagran.jpg" alt="Mazagran">
                     <p>Mazagran</p>
-                    <p class="price">3,50€</p>
+                    <p id="price">3,50€</p>
                     <button type="button" class="add-Item">Add to Cart</button>
                 </div>
                 <!-- Weitere Items -->
@@ -235,28 +237,28 @@
                 <div class="menu-item">
                     <img src="img/Baked/Cheesecake.jpg" alt="Cheesecake">
                     <p>Cheesecake</p>
-                    <p class="price">3,00€</p>
+                    <p id="price">3,00€</p>
                     <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Baked/Cinnamon-Roll.jpg" alt="Cinnamon-Roll">
                     <p>Cinnamon-Roll</p>
-                    <p class="price">2,50€</p>
+                    <p id="price">2,00€</p>
                     <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Baked/Croissant.jpg" alt="Croissant">
                     <p>Croissant</p>
-                    <p class="price">1,00€</p>
+                    <p id="price">1,00€</p>
                     <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
                     <img src="img/Baked/Krapfen.jpg" alt="Krapfen">
                     <p>Krapfen</p>
-                    <p class="price">1,50€</p>
+                    <p id="price">1,50€</p>
                     <button type="button" class="add-Item">Add to Cart</button>
                 </div>
                 <!-- Weitere Items -->
@@ -311,14 +313,9 @@
                 const element = document.getElementById(id);
                 if (!element) return;
                 
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                
-                // Remove and re-add the highlight class
-                element.classList.remove('highlight');
-                
-                // Force reflow to ensure the class re-add works even if clicked multiple times quickly
-                void element.offsetWidth;
-                
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });              
+                element.classList.remove('highlight');       
+                void element.offsetWidth;            
                 element.classList.add('highlight');
                 
                 // Remove after 1 second
@@ -371,20 +368,20 @@
                 popup.classList.add('hidden');
                 showToast(`${currentQuantity} ${currentItemName} added to cart`);
 
-                // Load existing cart or create empty array
+                // Load existing or create empty
                 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-                // Check if item already exists in cart
+                // item exists?
                 const existingItemIndex = cart.findIndex(item => item.name === currentItemName);
                 if (existingItemIndex >= 0) {
-                    // Update quantity if item exists
+                    // Update quantity
                     cart[existingItemIndex].quantity += currentQuantity;
                 } else {
-                    // Add new item to cart
+                    // Add to cart
                     cart.push({ name: currentItemName, quantity: currentQuantity });
                 }
 
-                // Save updated cart back to localStorage
+                // Save cart to localStorage
                 localStorage.setItem('cart', JSON.stringify(cart));
             });
 

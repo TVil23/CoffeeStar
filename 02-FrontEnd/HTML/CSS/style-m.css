@@ -27,12 +27,12 @@ body {
 /* Navigation Bar */
 .navbar {
     display: flex;
-    justify-content: center; /* Center the navbar items */
+    justify-content: center; 
     align-items: center;
     background: #333;
     padding: 10px;
     width: 100%;
-    box-sizing: border-box; /* Ensure padding is included in the width */
+    box-sizing: border-box; 
 }
 .navbar a {
     color: white;
@@ -43,8 +43,8 @@ body {
     border-radius: 5px;
     transition: background 0.3s;
     text-align: center;
-    width: calc(100% / 3); /* Equal distribution of nav items */
-    box-sizing: border-box; /* Ensure padding is included in width calculation */
+    width: calc(100% / 3); 
+    box-sizing: border-box; 
 }
 .navbar a:first-child {
     margin-left: 0;
@@ -59,6 +59,7 @@ body {
     width: 50px;
     height: auto;
     display: block;
+    border-radius: 50%;
 }
 
 
@@ -67,19 +68,22 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding-top: 20px;
     gap: 20px;
     flex-wrap: wrap;
 }
 
 .account-logo-section .logo-box,
 .account-logo-section .account-box {
-    flex: 1; /* Allow both to share the available space equally */
+    flex: 1; 
     display: flex;
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
-    max-width: 48%; /* Ensure they don't overflow */
+    justify-content: center; 
+    align-items: center; 
+    max-width: 45%; 
+    
 }
+
+
 
 .logo-box img {
     max-width: 100%;
@@ -92,10 +96,11 @@ body {
 }
 
 .account-logo-text {
-    max-width: 300px;
+    max-width: 400px;
     width: 100%;
     display: block;
     margin-bottom: 10px;
+    
 }
 
 .account-info p {
@@ -189,7 +194,7 @@ body {
   } 
   .menu-item {
     min-width: 180px;
-    height: 200px;
+    height: 220px;
     background: #fafafa;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -221,7 +226,7 @@ body {
 /* jump to highlight */
 .highlight {
     background-color: tan !important;
-    box-shadow: 0 0 10px rgba(210, 180, 140, 0.7); /* soft tan glow */
+    box-shadow: 0 0 10px rgba(210, 180, 140, 0.7); 
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -334,7 +339,7 @@ body {
     .navbar a {
         font-size: 1.2rem;
         padding: 12px 15px;
-        width: calc(100% / 3); /* Keep equal width for each button */
+        width: calc(100% / 3);
     }
 
     .account-logo-section {

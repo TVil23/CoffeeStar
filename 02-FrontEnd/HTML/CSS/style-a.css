@@ -59,6 +59,7 @@ body {
     width: 50px;
     height: auto;
     display: block;
+    border-radius: 50%;
 }
 
 
@@ -134,7 +135,7 @@ body {
 .our-locations h2 {
   text-align: center;
 }
-/* Wrapper für alle City-Boxen nebeneinander */
+/* Wrapper */
 .location-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -178,6 +179,10 @@ body {
   gap: 40px;
   flex-wrap: wrap;
   align-items: flex-start;
+  border: #777;
+  background-color: #ececec;
+  border-radius: 30px;
+  padding-bottom: 20px;
 }
 .recipe-item {
   width: 45%;
@@ -186,7 +191,7 @@ body {
 .recipe-item img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
+  
 }
 /* images smooth transition */
 .recipes img {

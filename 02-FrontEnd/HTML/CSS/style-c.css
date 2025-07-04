@@ -50,6 +50,7 @@ body {
     width: 50px;
     height: auto;
     display: block;
+    border-radius: 50%;
 }
 
 /* CONTAINER */
