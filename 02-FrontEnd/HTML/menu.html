@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>CoffeeStar - Menu</title>
     <link rel="stylesheet" href="CSS/style-m.css" />
+
+    <!-- TO-DO: 
+        - Preise exportieren
+        - Point collection System
+
+        - Logo layout ordered in 3 boxes
+            -> Benutzername und points auf Profil info anzeigen
+    -->
+
+
 </head>
 
 <body>
-
-
     <!-- Popup -->
     <div id="popup" class="popup hidden">
     <div class="popup-content">
@@ -25,19 +33,9 @@
         </div>
     </div>
     </div>
-
     <!-- Confirmation -->
     <div id="toast" class="toast hidden"></div>
 
-
-
-
-
-    <!-- TO-DO: 
-        - Point collection System
-
-        - Logo layout ordered in 3 boxes
-    -->
 
     <div class="container">
         <!-- Navigation Bar -->
@@ -120,7 +118,7 @@
                     <img src="img/Hot-Coffee/Cafe_Latte.jpg" alt="Cafe Latte">
                     <p>Cafe Latte</p>
                     <p class="price">2,50€</p>
-                    <button type="button" class="add_Item">Add to Cart</button>
+                    <button type="button" class="add-Item">Add to Cart</button>
                 </div>
 
                 <div class="menu-item">
@@ -295,7 +293,6 @@
                 currentQuantity++;
                 document.getElementById("quantity").textContent = currentQuantity;
             });
-
             document.getElementById("decrease").addEventListener("click", () => {
                 if (currentQuantity > 0) {
                 currentQuantity--;
@@ -326,7 +323,6 @@
                 document.getElementById("popup").classList.add("hidden");
                 showToast(`${currentItem.name} updated in cart.`);
             });
-
             // Cancel add
             document.getElementById("cancel-add").addEventListener("click", () => {
                 document.getElementById("popup").classList.add("hidden");
@@ -342,7 +338,8 @@
                 }, 2000);
             }
 
-            // Scroll-Funktion
+            
+            // Scroll To Menu Funktion
             function scrollToSection(id) {
                 const element = document.getElementById(id);
                 if (!element) return;
@@ -356,6 +353,17 @@
                 button.addEventListener('click', () => {
                 document.querySelectorAll('.choice-item button').forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
+                });
+            });
+
+            // Menu Slide Buttons
+            document.querySelectorAll('.slide-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const direction = button.classList.contains('left-btn') ? -1 : 1;
+                    const targetId = button.getAttribute('data-target');
+                    const container = document.querySelector(`#${targetId} .menu-items`);
+                    const scrollAmount = container.querySelector('.menu-item').offsetWidth + 20;
+                    container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
                 });
             });
 
