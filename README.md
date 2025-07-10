@@ -5,8 +5,6 @@ Kaffee Bestellsystem
 
 - Produkte auswählen und hinzufügen
 
-- Coupons einlösen
-
 - Bestellen
 
 - Punkte Sammeln
