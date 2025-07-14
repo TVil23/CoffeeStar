@@ -1,48 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoffeeStar - About</title>
-    <link rel="stylesheet" href="CSS/style-c.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CoffeeStar - Cart</title>
+    <link rel="stylesheet" href="CSS/style-c.css" />
+
+    <!-- TO-DO: 
+        - Save Payment methode Information
+
+        - A: create account 
+        - After Purchase add points to acount-info
+
+    -->
+
+
 </head>
 <body>
-
     <div class="container">
-        <!-- Navigation Bar -->
+        <!-- Navigation -->
         <nav class="navbar">
             <a href="start.html">Start</a>
             <a href="menu.html">Menu</a>
             <a href="cart.html">Cart</a>
             <a href="about.html">About</a>
-            <img src="img/logo.jpg" alt="Logo" class="nav-logo">
+            <img src="img/logo.jpg" alt="Logo" class="nav-logo" />
         </nav>
 
-        <!-- Main Content -->
+        <!-- Cart Content -->
         <div class="content">
-            <img src="img/logo.jpg" alt="Logo" class="main-logo">
-
-            <div class="text-box">
-                <img src="img/logo-txt.jpg" alt="Logo Text" class="text-box-logo">
-                <p>Welcome to our About page!</p>
-                <p>Here is more text about us </p>
-                <p>This is a Page where you can read about us.</p>
-                <p>Order our coffee now!</p>
-                <p>Join us today!</p>
+            <!-- Left Side -->
+            <div class="left">
+                <div class="logo-Area">
+                <img src="img/logo.jpg" alt="Logo" class="Page-logo" />
+                </div>
+                <div class="Account">
+                    <div class="Payment-methode">
+                        <label><input type="radio" name="payment" value="paypal" /> PayPal</label><br/>
+                        <label><input type="radio" name="payment" value="creditcard" /> Credit Card</label>
+                    </div>
+                    <div class="Account-Info">
+                        <p>Username: </p>
+                        <p>E-Mail: </p>
+                        <p>Points: </p>
+                    </div>
+                </div>
             </div>
 
+            <!-- Right Side -->
+            <div class="right">
+                <h1>Cart</h1>
+
+                <div id="cart-items-container">
+                    <!-- Falls leer: -->
+                    <p id="empty-cart-text">Nothing to see here yet.</p>
+                    <p class="empty-cart-text"> Visit the <a href="menu.html">menu</a> to add more Items.</p>
+                </div>
+
+                <!-- Payment Form -->
+                <div class="Payment">
+                    <div id="paypal-box" style="display: none;">
+                        <h3>Pay with PayPal</h3>
+                        <label>E-Mail: 
+                            <input type="email" id="paypal-email" required pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+"/>
+                        </label><br />
+                        <label>Password: 
+                            <input type="password" id="paypal-password" required minlength="6"/>
+                        </label>
+                    </div>
+
+                    <div id="creditcard-box" style="display: none;">
+                        <h3>Pay with Credit Card</h3>
+                        <label>Name: 
+                            <input type="text" id="card-name" required />
+                        </label><br />
+                        <label>Card Number: 
+                            <input type="text" id="card-number" required pattern="\d{16}" maxlength="16"/>
+                        </label><br />
+                        <label>CCV: 
+                            <input type="text" id="card-ccv" required pattern="\d{3}" maxlength="3"/>
+                        </label>
+                    </div>
+
+                    <button id="Paying">Pay</button>
+                    <p id="total-price" class="total-price">Total: €0.00</p>
+
+                </div>
+            </div>
         </div>
 
-
-
-
-
-
-        <!-- Contact Information -->
+        <!-- Contact -->
         <div class="contact-box">
-            <p>Contact us at: contact@coffeestar.com | Phone: +123 456 7890</p>
+            <p>Contact us at: CoffeStar@bapfit.de | Phone: +123 456 7890</p>
         </div>
     </div>
+
+    <!-- JavaScript -->
+    <script>
+        function displayCart() {
+            const cartContainer = document.getElementById('cart-items-container');
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            cartContainer.innerHTML = '';
+
+            if (cartItems.length === 0) {
+                cartContainer.innerHTML = `
+                    <p id="empty-cart-text">Nothing to see here yet.</p>
+                    <p class="empty-cart-text">Visit the <a href="menu.html">menu</a> to add more items.</p>
+                `;
+                return;
+            }
+
+            cartItems.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'cart-item';
+                div.innerHTML = `
+                    <div class="look">
+                        <img src="${item.img}" alt="${item.name}" class="item" />
+                    </div>
+                    <div class="cart-details">
+                        <p><strong>${item.name}</strong></p>
+                        <p><em>Price: ${item.price}</em></p>
+                        <p>${item.description}</p>
+                        <label>Amount:
+                            <input type="number" class="amount-input" value="${item.amount}" min="0" data-index="${index}" />
+                        </label>
+                        <button class="remove-btn" data-index="${index}">Remove</button>
+                    </div>
+                `;
+                cartContainer.appendChild(div);
+            });
+
+            // Event Listener für Menge ändern
+            document.querySelectorAll('.amount-input').forEach(input => {
+                input.addEventListener('change', e => {
+                    const newAmount = parseInt(e.target.value);
+                    const index = parseInt(e.target.dataset.index);
+                    if (isNaN(newAmount) || newAmount < 0) return;
+
+                    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+                    if (newAmount === 0) {
+                        const confirmRemove = confirm(`Remove "${cartItems[index].name}" from cart?`);
+                        if (confirmRemove) {
+                            cartItems.splice(index, 1);
+                        } else {
+                            e.target.value = cartItems[index].amount;
+                            return;
+                        }
+                    } else {
+                        cartItems[index].amount = newAmount;
+                    }
+
+                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                    displayCart();
+                });
+            });
+
+            // Event Listener für Entfernen
+            document.querySelectorAll('.remove-btn').forEach(btn => {
+                btn.addEventListener('click', e => {
+                    const index = parseInt(e.target.dataset.index);
+                    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+                    const confirmRemove = confirm(`Remove "${cartItems[index].name}" from cart?`);
+                    if (confirmRemove) {
+                        cartItems.splice(index, 1);
+                        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                        displayCart();
+                    }
+                });
+            });
+
+
+
+            // Preis-Zusammenfassung berechnen und anzeigen
+            let total = 0;
+            cartItems.forEach(item => {
+                //const priceNumber = parseFloat(item.price.replace(/[^\d.]/g, '')) || 0;
+                const priceNumber = parseFloat(
+                    item.price
+                        .replace(/\./g, '')
+                        .replace(',', '.')
+                        .replace(/[^\d.]/g, '')
+                ) || 0;
+                total += priceNumber * item.amount;
+            });
+            document.getElementById('total-price').textContent = `Total: €${total.toFixed(2)}`;
+
+
+
+
+        }
+
+        // Umschalten der Zahlungsoptionen
+        document.querySelectorAll('input[name="payment"]').forEach(radio => {
+            radio.addEventListener('change', e => {
+                document.getElementById('paypal-box').style.display =
+                    e.target.value === 'paypal' ? 'block' : 'none';
+                document.getElementById('creditcard-box').style.display =
+                    e.target.value === 'creditcard' ? 'block' : 'none';
+            });
+        });
+
+
+        // Pay Requirements
+        document.getElementById('Paying').addEventListener('click', () => {
+            const selectedPayment = document.querySelector('input[name="payment"]:checked');
+
+            if (!selectedPayment) {
+                alert("Please select a payment method.");
+                return;
+            }
+
+            if (selectedPayment.value === 'paypal') {
+                const email = document.getElementById('paypal-email');
+                const password = document.getElementById('paypal-password');
+
+                const emailValid = email.checkValidity();
+                const passwordValid = password.checkValidity();
+
+                if (!emailValid || !passwordValid) {
+                    alert("Please enter a valid PayPal email and password.");
+                    return;
+                }
+            }
+
+            if (selectedPayment.value === 'creditcard') {
+                const name = document.getElementById('card-name');
+                const number = document.getElementById('card-number');
+                const ccv = document.getElementById('card-ccv');
+
+                const nameValid = name.checkValidity();
+                const numberValid = number.checkValidity();
+                const ccvValid = ccv.checkValidity();
+
+                if (!nameValid || !numberValid || !ccvValid) {
+                    alert("Please enter valid credit card details.");
+                    return;
+                }
+            }
+
+
+            // Calculate total points before clearing the cart
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            let total = 0;
+            cartItems.forEach(item => {
+                const priceNumber = parseFloat(
+                    item.price
+                        .replace(/\./g, '')
+                        .replace(',', '.')
+                        .replace(/[^\d.]/g, '')
+                ) || 0;
+                total += priceNumber * item.amount;
+            });
+            const points = Math.floor(total / 5);
+
+            // Simulate purchase success
+            alert("Payment successful! Thank you for your purchase.");
+
+            // Show points earned message only if points > 0
+            if (points > 0) {
+                alert(`You earned ${points} point${points !== 1 ? 's' : ''}!`);
+            } else {
+                alert("Spend more than €5 to earn points!");
+            }
+
+            // Clear cart and update UI
+            localStorage.removeItem('cartItems');
+            displayCart();
+
+
+        });
+
+
+
+        window.addEventListener('DOMContentLoaded', displayCart);
+    </script>
 
 </body>
 </html>

@@ -1,41 +1,24 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
+/* Reset & general */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
 }
 
-/* Main Container */
-.container {
-    width: 80%;
-    max-width: 1200px;
-    height: auto;
-    max-height: 900px;
-    background: white;
-    padding: 15px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 60vh;
-    position: relative;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
 }
 
 /* Navigation Bar */
 .navbar {
     display: flex;
-    justify-content: center; /* Center the navbar items */
+    justify-content: center; 
     align-items: center;
     background: #333;
     padding: 10px;
     width: 100%;
-    box-sizing: border-box; /* Ensure padding is included in the width */
+    box-sizing: border-box; 
 }
 
 .navbar a {
@@ -47,11 +30,11 @@ body {
     border-radius: 5px;
     transition: background 0.3s;
     text-align: center;
-    width: calc(100% / 3); /* Equal distribution of nav items */
-    box-sizing: border-box; /* Ensure padding is included in width calculation */
+    width: calc(100% / 3);
+    box-sizing: border-box; 
 }
 
-/* Optional - Nav items will now be centered inside the container */
+
 .navbar a:first-child {
     margin-left: 0;
 }
@@ -67,154 +50,207 @@ body {
     width: 50px;
     height: auto;
     display: block;
+    border-radius: 50%;
 }
 
+/* CONTAINER */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
 
-/* Main Content */
+/* CONTENT: left + right side */
 .content {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px;
-    width: 100%;
-    margin-top: 20px;
-    flex-grow: 1;
-    box-sizing: border-box;
+    gap: 20px;
 }
 
-/* Logo */
-.main-logo {
-    width: 30%;
-    max-width: 200px;
-    padding: 5px;
-    margin: auto;
+/* LEFT SIDE */
+.left {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
 }
 
-/* Text Box */
-.text-box {
-    width: 70%;
-    background: #eee;
+.logo-Area {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.Page-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.Account {
+    text-align: left;
+}
+
+.Payment-methode {
+    margin: 10px 0;
+}
+
+.Payment-methode label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+.Account-Info p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+/* RIGHT SIDE */
+.right {
+    flex: 2;
+    min-width: 300px;
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
-    text-align: center;
-    margin: 0 auto;
-    z-index: 1;
-    box-sizing: border-box;
+    border: 1px solid #ccc;
 }
 
-.text-box-logo {
-    width: 60%;
-    max-width: 400px;
+.right h1 {
     margin-bottom: 20px;
+    font-size: 1.8em;
 }
 
-.buttons {
+/* CART ITEMS */
+.cart-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.look {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.item {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.cart-item p {
+    margin: 3px 0;
+}
+
+.cart-item input[type="number"] {
+    width: 60px;
+    padding: 5px;
+}
+
+.cart-item button {
+    background-color: #c62828;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-item button:hover {
+    background-color: #a61919;
+}
+
+.cart-items-container {
     margin-top: 20px;
 }
 
-button {
-    padding: 10px 15px;
-    margin: 5px;
-    border: none;
-    background: #746154;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s;
+.cart-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
 }
 
-button:hover {
-    background: #8b7565;
+
+
+
+/* EMPTY CART TEXT */
+#empty-cart-text {
+    color: #888;
+    font-style: italic;
+    margin: 20px 0;
 }
 
-/* Contact Box */
-.contact-box {
-    background: #333;
-    color: white;
+/* PAYMENT SECTION */
+.Payment {
+    margin-top: 30px;
+}
+
+.Payment h3 {
+    margin-bottom: 10px;
+}
+
+.Payment label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.Payment input {
     width: 100%;
-    text-align: center;
-    padding: 20px;
-    box-sizing: border-box;
-    position: relative;
-    bottom: 0;
-    z-index: 0; /* Keep it below other content */
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    .container {
-        width: 90%;
-        padding: 15px;
-    }
+/* CONTACT BAR (unchanged) */
+.contact-box {
+    margin-top: 40px;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 0.9em;
+}
 
-    .navbar {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .navbar a {
-        font-size: 1.2rem;
-        padding: 12px 15px;
-        width: calc(100% / 3); /* Keep equal width for each button */
-    }
-
+/* RESPONSIVE */
+@media (max-width: 768px) {
     .content {
         flex-direction: column;
+    }
+
+    .left, .right {
+        max-width: 100%;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .look {
+        flex-direction: row;
         align-items: center;
-        justify-content: center;
+        gap: 10px;
     }
 
-    .main-logo {
-        width: 50%;
-    }
-
-    .text-box {
-        width: 90%;
-        margin-bottom: 20px;
-    }
-
-    .buttons {
-        text-align: center;
+    .item {
+        width: 60px;
+        height: 60px;
     }
 }
 
-@media screen and (max-width: 480px) {
-    body {
-        padding: 10px;
-    }
-
-    .navbar a {
-        font-size: 1rem;
-        padding: 10px 12px;
-        width: calc(100% / 3); /* Maintain equal width on small screens */
-    }
-
-    .main-logo {
-        width: 60%;
-    }
-
-    .text-box {
-        padding: 15px;
-        width: 100%;
-    }
-
-    button {
-        font-size: 14px;
-        padding: 8px 12px;
-    }
-
-    .buttons button {
-        width: 100%; /* Full-width buttons on small devices */
-    }
-
-    .nav-logo {
-        display: none; /* Hide logo in navbar on very small screens */
-    }
-
-    .contact-box {
-        padding: 10px;
-        font-size: 14px; /* Smaller font size for small devices */
-    }
-}

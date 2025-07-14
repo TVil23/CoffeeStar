@@ -28,12 +28,11 @@ form input {
 }
 
 .button {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #007BFF;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+    display: block;  /* Dadurch werden beide Buttons blockweise untereinander angezeigt */
+    margin-bottom: 10px;  /* Hier wird ein Abstand zwischen den Buttons hinzugefügt */
+    padding: 10px;
+    text-align: center;
+    width: 100%;
 }
 
 .button:hover {
