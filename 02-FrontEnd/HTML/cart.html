@@ -7,15 +7,11 @@
     <link rel="stylesheet" href="CSS/style-c.css" />
 
     <!-- TO-DO: 
-        - Preise anzeigen
-        - Point collection System
-
-        - Logo layout ordered in 3 boxes
-
         - Save Payment methode Information
 
-        - "Purchase button"
-            - > After Purchase add points to acount-info
+        - A: create account 
+        - After Purchase add points to acount-info
+
     -->
 
 
@@ -65,16 +61,30 @@
                 <div class="Payment">
                     <div id="paypal-box" style="display: none;">
                         <h3>Pay with PayPal</h3>
-                        <label>E-Mail: <input type="email" /></label><br />
-                        <label>Password: <input type="password" /></label>
+                        <label>E-Mail: 
+                            <input type="email" id="paypal-email" required pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+"/>
+                        </label><br />
+                        <label>Password: 
+                            <input type="password" id="paypal-password" required minlength="6"/>
+                        </label>
                     </div>
 
                     <div id="creditcard-box" style="display: none;">
                         <h3>Pay with Credit Card</h3>
-                        <label>Name: <input type="text" /></label><br />
-                        <label>Card Number: <input type="text" /></label><br />
-                        <label>CCV: <input type="text" maxlength="4" /></label>
+                        <label>Name: 
+                            <input type="text" id="card-name" required />
+                        </label><br />
+                        <label>Card Number: 
+                            <input type="text" id="card-number" required pattern="\d{16}" maxlength="16"/>
+                        </label><br />
+                        <label>CCV: 
+                            <input type="text" id="card-ccv" required pattern="\d{3}" maxlength="3"/>
+                        </label>
                     </div>
+
+                    <button id="Paying">Pay</button>
+                    <p id="total-price" class="total-price">Total: €0.00</p>
+
                 </div>
             </div>
         </div>
@@ -110,6 +120,7 @@
                     </div>
                     <div class="cart-details">
                         <p><strong>${item.name}</strong></p>
+                        <p><em>Price: ${item.price}</em></p>
                         <p>${item.description}</p>
                         <label>Amount:
                             <input type="number" class="amount-input" value="${item.amount}" min="0" data-index="${index}" />
@@ -160,6 +171,26 @@
                     }
                 });
             });
+
+
+
+            // Preis-Zusammenfassung berechnen und anzeigen
+            let total = 0;
+            cartItems.forEach(item => {
+                //const priceNumber = parseFloat(item.price.replace(/[^\d.]/g, '')) || 0;
+                const priceNumber = parseFloat(
+                    item.price
+                        .replace(/\./g, '')
+                        .replace(',', '.')
+                        .replace(/[^\d.]/g, '')
+                ) || 0;
+                total += priceNumber * item.amount;
+            });
+            document.getElementById('total-price').textContent = `Total: €${total.toFixed(2)}`;
+
+
+
+
         }
 
         // Umschalten der Zahlungsoptionen
@@ -171,6 +202,78 @@
                     e.target.value === 'creditcard' ? 'block' : 'none';
             });
         });
+
+
+        // Pay Requirements
+        document.getElementById('Paying').addEventListener('click', () => {
+            const selectedPayment = document.querySelector('input[name="payment"]:checked');
+
+            if (!selectedPayment) {
+                alert("Please select a payment method.");
+                return;
+            }
+
+            if (selectedPayment.value === 'paypal') {
+                const email = document.getElementById('paypal-email');
+                const password = document.getElementById('paypal-password');
+
+                const emailValid = email.checkValidity();
+                const passwordValid = password.checkValidity();
+
+                if (!emailValid || !passwordValid) {
+                    alert("Please enter a valid PayPal email and password.");
+                    return;
+                }
+            }
+
+            if (selectedPayment.value === 'creditcard') {
+                const name = document.getElementById('card-name');
+                const number = document.getElementById('card-number');
+                const ccv = document.getElementById('card-ccv');
+
+                const nameValid = name.checkValidity();
+                const numberValid = number.checkValidity();
+                const ccvValid = ccv.checkValidity();
+
+                if (!nameValid || !numberValid || !ccvValid) {
+                    alert("Please enter valid credit card details.");
+                    return;
+                }
+            }
+
+
+            // Calculate total points before clearing the cart
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            let total = 0;
+            cartItems.forEach(item => {
+                const priceNumber = parseFloat(
+                    item.price
+                        .replace(/\./g, '')
+                        .replace(',', '.')
+                        .replace(/[^\d.]/g, '')
+                ) || 0;
+                total += priceNumber * item.amount;
+            });
+            const points = Math.floor(total / 5);
+
+            // Simulate purchase success
+            alert("Payment successful! Thank you for your purchase.");
+
+            // Show points earned message only if points > 0
+            if (points > 0) {
+                alert(`You earned ${points} point${points !== 1 ? 's' : ''}!`);
+            } else {
+                alert("Spend more than €5 to earn points!");
+            }
+
+            // Clear cart and update UI
+            localStorage.removeItem('cartItems');
+            displayCart();
+
+
+        });
+
+
 
         window.addEventListener('DOMContentLoaded', displayCart);
     </script>

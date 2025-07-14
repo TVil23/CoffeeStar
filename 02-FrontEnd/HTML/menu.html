@@ -278,9 +278,10 @@
                 button.addEventListener('click', () => {
                 const item = button.closest('.menu-item');
                 const name = item.querySelector('p').textContent;
+                const price = item.querySelector('.price').textContent;
                 const img = item.querySelector('img').src;
                 const description = "";
-                currentItem = { name, img, description };
+                currentItem = { name, img, description, price };
                 currentQuantity = 1;
                 document.getElementById("quantity").textContent = currentQuantity;
                 document.getElementById("popup-message").textContent = `Add "${name}" to cart`;
@@ -299,6 +300,8 @@
                 document.getElementById("quantity").textContent = currentQuantity;
                 }
             });
+            
+
 
             // Confirm add
             document.getElementById("confirm-add").addEventListener("click", () => {
@@ -314,9 +317,10 @@
                     }
                 } else {
                     existingItem.amount += currentQuantity;
+                    showToast(`Updated quantity of "${currentItem.name}" in cart`);
                 }
                 } else if (currentQuantity > 0) {
-                cartItems.push({ ...currentItem, amount: currentQuantity });
+                    cartItems.push({ ...currentItem, amount: currentQuantity });
                 }
 
                 localStorage.setItem('cartItems', JSON.stringify(cartItems));
@@ -366,6 +370,23 @@
                     container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
                 });
             });
+
+
+
+            // (when user info is available)
+            document.addEventListener('DOMContentLoaded', () => {
+                // Placeholder 
+                //const user = {
+                //    username: "CoffeeLover123",
+                //    points: 120
+                //};
+
+                document.getElementById('username').textContent = user.username;
+                document.getElementById('points').textContent = user.points;
+            });
+
+
+
 
         </script>
 
