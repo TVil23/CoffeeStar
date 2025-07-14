@@ -30,6 +30,6 @@ try {
     $pdo->exec($sql);
   
 } catch (PDOException $e) {
-    die("Fehler: " . $e->getMessage()); // Kein rollBack() hier!
+    die("Fehler: " . $e->getMessage());
 }
 ?>
