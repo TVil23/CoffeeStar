@@ -3,7 +3,7 @@ Kaffee Bestellsystem
 
 - Einloggen
 
-- Produkte Warenkorb hinzufügen
+- Produkte auswählen und hinzufügen
 
 - Bestellen
 

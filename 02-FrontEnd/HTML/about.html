@@ -5,10 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CoffeeStar - About</title>
     <link rel="stylesheet" href="CSS/style-a.css">
+
+    <!-- TO-DO
+        - edit creator info
+
+        -when clicked on image, expand image on screen
+    -->
+
 </head>
 <body>
+ 
 
+ 
+    <!-- Main Content -->
     <div class="container">
+ 
         <!-- Navigation Bar -->
         <nav class="navbar">
             <a href="start.html">Start</a>
@@ -17,15 +28,163 @@
             <a href="about.html">About</a>
             <img src="img/logo.jpg" alt="Logo" class="nav-logo">
         </nav>
+ 
+        <!-- Introduction -->
+        <div class="introduction">
+            <img src="img/logo.jpg" alt="Logo" class="main-logo">
+ 
+            <div class="text-box">
+                <img src="img/logo-txt.jpg" alt="Logo Text" class="text-box-logo">
+                <p>Welcome to our website!</p>
+                <p>In our About section you are able to see our locatins</p>
+                <p>Furthermore you can get a look into how each of our most popular Coffees are made</p>
+            </div>
+        </div>
+        
+ 
+        <!-- Locations -->
+        <div class="our-locations">
+            <h2 class="headders">Our Locations</h2>
+            <div class="location-wrapper">            
 
-        <!-- Main Content -->
+                <!-- Location 1 Passau -->
+                <div class="City">
+                    <h5>Outside view</h5>
+                    <img src="img/Locations/Passau-Cafe-O.jpg" alt="Outside" class="Location-Outside">
+
+                    <h5>Inside view</h5>
+                    <img src="img/Locations/Passau-Cafe-I.png" alt="Inside" class="Location-Inside">
+ 
+                    <h5>About Location</h5>
+                    <p>This location is located in Passau</p>
+                    <h6>Opening Hours: </h6>
+                    <p>Mo - Sa 8:00am - 3:00pm </p>
+                </div>
+ 
+                <!-- Location 2 Munich -->
+                <div class="City">
+                    <h5>Outside view</h5>
+                    <img src="img/Locations/Munich-Cafe-O.png" alt="Outside" class="Location-Outside">
+
+                    <h5>Inside view</h5>
+                    <img src="img/Locations/Munich-Cafe-I.png" alt="Inside" class="Location-Inside">
+ 
+                    <h5>About Location</h5>
+                    <p>This location is located in Munich</p>
+                    <h6>Opening Hours: </h6>
+                    <p>Mo - Sa 8:00am - 4:00pm </p>
+                </div>
+ 
+                <!-- Location 3 Berlin -->
+                <div class="City">
+                    <h5>Outside view</h5>
+                    <img src="img/Locations/Berlin-Cafe-O.png" alt="Outside" class="Location-Outside">
+
+                    <h5>Inside view</h5>
+                    <img src="img/Locations/Berlin-Cafe-I.png" alt="Inside" class="Location-Inside">
+ 
+                    <h5>About Location</h5>
+                    <p>This location is located in Berlin</p>
+                    <h6>Opening Hours: </h6>
+                    <p>Mo - Sa 7:00am - 5:00pm </p>
+                </div>
+
+            </div>
+
+        </div>
+ 
+ 
+        <!-- recipies -->
+        <div class="recipes">
+            <h2 class="headders">Recipes</h2>
+
+            <div class="recipe-images">
+                <div class="recipe-item">
+                    <h4>Hot Coffee</h4>
+                    <img src="img/Hot-Coffee/Hot_Coffee-Types.png" alt="Recipe" class="Hot-Coffee-Types">
+                </div>
+
+                <div class="recipe-item">
+                    <h4>Cold Coffee</h4>
+                    <img src="img/Cold-Coffee/Cold_Coffee-Types.jpg" alt="Recipe" class="Cold-Coffee-Types">
+                </div>
+            </div>
+        </div>
+ 
+ 
+        <!-- Creators -->
+        <h2 class="headders">About Creators</h2>
+        <div class="abt-creators">
+            <div class="creator">
+                <p></p>
+                <p>Information . . .</p>
+            </div>
+
+            <div class="creator">
+                <p></p>
+                <p>Information . . .</p>
+            </div>
+        </div>
 
 
+        <script>
+        // Wait for the DOM to be loaded
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Handle City box hover
+            const cityBoxes = document.querySelectorAll('.City');
+
+            cityBoxes.forEach(box => {
+                box.addEventListener('mouseenter', () => {
+                    box.style.backgroundColor = '#e0e0e0';
+                });
+
+                box.addEventListener('mouseleave', () => {
+                    box.style.backgroundColor = '#fafafa';
+                });
+            });
+
+            // Handle City image hover
+            const images = document.querySelectorAll('.City img');
+
+            images.forEach(img => {
+                img.addEventListener('mouseenter', () => {
+                    img.style.transform = 'translateY(-10px)';
+                    img.style.transition = 'transform 0.3s ease';
+                });
+
+                img.addEventListener('mouseleave', () => {
+                    img.style.transform = 'translateY(0px)';
+                    img.style.transition = 'transform 0.3s ease';
+                });
+            });
+
+
+            // Handle recipe image hover
+            const recipeImages = document.querySelectorAll('.recipes img');
+
+            recipeImages.forEach(img => {
+                img.addEventListener('mouseenter', () => {
+                    img.style.transform = 'scale(1.1)';
+                    img.style.transition = 'transform 0.3s ease';
+                });
+
+                img.addEventListener('mouseleave', () => {
+                    img.style.transform = 'scale(1)';
+                    img.style.transition = 'transform 0.3s ease';
+                });
+            });
+
+        });
+        </script>
+
+ 
+ 
+ 
         <!-- Contact Information -->
         <div class="contact-box">
             <p>Contact us at: CoffeStar@bapfit.de | Phone: +123 456 7890</p>
         </div>
     </div>
-
 </body>
 </html>

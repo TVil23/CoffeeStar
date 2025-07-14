@@ -6,8 +6,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
+    background-color: #634f48;
 }
 
 /* Main Container */
@@ -28,12 +27,12 @@ body {
 /* Navigation Bar */
 .navbar {
     display: flex;
-    justify-content: center; /* Center the navbar items */
+    justify-content: center; 
     align-items: center;
     background: #333;
     padding: 10px;
     width: 100%;
-    box-sizing: border-box; /* Ensure padding is included in the width */
+    box-sizing: border-box; 
 }
 .navbar a {
     color: white;
@@ -44,8 +43,8 @@ body {
     border-radius: 5px;
     transition: background 0.3s;
     text-align: center;
-    width: calc(100% / 3); /* Equal distribution of nav items */
-    box-sizing: border-box; /* Ensure padding is included in width calculation */
+    width: calc(100% / 3); 
+    box-sizing: border-box; 
 }
 .navbar a:first-child {
     margin-left: 0;
@@ -60,6 +59,7 @@ body {
     width: 50px;
     height: auto;
     display: block;
+    border-radius: 50%;
 }
 
 
@@ -68,19 +68,22 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding-top: 20px;
     gap: 20px;
     flex-wrap: wrap;
 }
 
 .account-logo-section .logo-box,
 .account-logo-section .account-box {
-    flex: 1; /* Allow both to share the available space equally */
+    flex: 1; 
     display: flex;
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
-    max-width: 48%; /* Ensure they don't overflow */
+    justify-content: center; 
+    align-items: center; 
+    max-width: 45%; 
+    
 }
+
+
 
 .logo-box img {
     max-width: 100%;
@@ -93,10 +96,11 @@ body {
 }
 
 .account-logo-text {
-    max-width: 300px;
+    max-width: 400px;
     width: 100%;
     display: block;
     margin-bottom: 10px;
+    
 }
 
 .account-info p {
@@ -163,12 +167,18 @@ body {
 
 
 
-
 /* Menu items */
 .menu-box {
+    background-color: white;
     margin: 30px 0;
     text-align: center;
+    transition: background-color 0.3s ease;
   }
+  .menu-box.highlight {
+    background-color: #ffe08a;
+    box-shadow: 0 0 10px #a18874;
+  }
+
   .menu-slider {
     display: flex;
     align-items: center;
@@ -184,7 +194,7 @@ body {
   } 
   .menu-item {
     min-width: 180px;
-    height: 200px;
+    height: 220px;
     background: #fafafa;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -211,8 +221,90 @@ body {
 
     width: 40px;
     height: 230px;
-  }
+}
 
+/* jump to highlight */
+.highlight {
+    background-color: tan !important;
+    box-shadow: 0 0 10px rgba(210, 180, 140, 0.7); 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+
+
+
+
+/* popup */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+.popup.hidden {
+    display: none;
+}
+.popup-content {
+    background: #fff8f0;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    max-width: 300px;
+    width: 90%;
+}
+.quantity-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+.quantity-selector button {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+}
+#quantity {
+    font-size: 22px;
+    margin: 0 15px;
+    width: 30px;
+    display: inline-block;
+}
+.popup-buttons button {
+    margin: 0 10px;
+    padding: 8px 16px;
+}
+
+/* confirmation */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.4s ease, bottom 0.4s ease;
+}
+.toast.show {
+    opacity: 1;
+    bottom: 40px;
+}
+.toast.hidden {
+    display: none;
+}
 
 
 
@@ -247,7 +339,7 @@ body {
     .navbar a {
         font-size: 1.2rem;
         padding: 12px 15px;
-        width: calc(100% / 3); /* Keep equal width for each button */
+        width: calc(100% / 3);
     }
 
     .account-logo-section {
@@ -266,18 +358,18 @@ body {
 
     .account-box {
         text-align: center;
-        max-width: 100%; /* Make account box stretch in smaller screens */
+        max-width: 100%; 
     }
 
     .logo-box {
-        margin-bottom: 20px; /* Give some space between logo and account info */
+        margin-bottom: 20px; 
     }
 }
 @media screen and (max-width: 480px) {
     .navbar a {
         font-size: 1rem;
         padding: 10px 12px;
-        width: calc(100% / 3); /* Maintain equal width on small screens */
+        width: calc(100% / 3); 
     }
 
     .choice-circle {
